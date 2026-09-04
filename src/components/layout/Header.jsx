@@ -7,7 +7,6 @@ import {
   FaPhone,
   FaEnvelope
 } from 'react-icons/fa';
-import logoImage from '/awizo-logo.png';
 import './Header.css';
 
 const Header = () => {
@@ -81,7 +80,7 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="logo">
               <img 
-                src={logoImage} 
+                src="/awizo-logo.png" 
                 alt="Awizo Hub" 
                 className="logo-image"
                 onError={(e) => {
@@ -89,7 +88,7 @@ const Header = () => {
                   e.target.nextSibling.style.display = 'inline';
                 }}
               />
-              <span className="logo-text" style={{ display: 'none' }}>Awizo Hub</span>
+              <span className="logo-text">Awizo Hub</span>
             </Link>
 
             {/* Desktop Navigation */}
