@@ -1,37 +1,50 @@
 :root {
-  /* Premium Luxury Color Palette - Dark Sophisticated System */
-  --bg-primary: #0B0D10;        /* Deep Obsidian - Main Background */
-  --bg-surface: #151922;        /* Rich Charcoal - Elevated Surfaces */
-  --accent-primary: #C9A227;    /* Premium Metallic Gold - Primary Actions */
-  --accent-secondary: #E8D48A;  /* Elegant Champagne Gold - Secondary Emphasis */
-  --text-primary: #FFFFFF;      /* Pure White - Main Text (Bright & Clear) */
-  --text-secondary: #B8BDC7;    /* Brighter Cool Gray - Muted Text */
+  /* Premium Modern Color System - Inspired by Growix */
+  --primary-deep-blue: #173B72;     /* Primary Deep Blue */
+  --secondary-blue: #1F6F8B;        /* Secondary Blue */
+  --primary-teal: #2FB7A8;          /* Primary Teal */
+  --bright-aqua: #55C8B8;           /* Bright Aqua */
+  --white-bg: #F7FAFC;              /* White Background */
+  --soft-text: #D5E3EA;             /* Soft Text */
   
-  /* Legacy mappings for compatibility during transition */
+  /* Main variables */
+  --bg-primary: #173B72;            /* Deep Blue - Hero & Dark Sections */
+  --bg-surface: #FFFFFF;            /* Pure White - Cards & Surfaces */
+  --bg-light: #F7FAFC;              /* Light Background */
+  --bg-gradient-start: #173B72;     /* Gradient Start */
+  --bg-gradient-end: #1F6F8B;       /* Gradient End */
+  --accent-primary: #2FB7A8;        /* Primary Teal - CTAs */
+  --accent-secondary: #55C8B8;      /* Bright Aqua - Hover States */
+  --text-primary: #FFFFFF;          /* Pure White - Main Text on Dark */
+  --text-dark: #0F2744;             /* Very Dark Blue - Text on Light */
+  --text-secondary: #5A7A95;        /* Cool Gray Blue - Muted Text */
+  --text-soft: #D5E3EA;             /* Soft Text on Dark */
+  
+  /* Legacy mappings for compatibility */
   --primary-navy: var(--bg-primary);
-  --primary-blue: var(--accent-primary);
-  --secondary-blue: var(--accent-secondary);
+  --primary-blue: var(--primary-teal);
+  --secondary-blue: var(--bright-aqua);
   --accent-orange: var(--accent-primary);
   --accent-gold: var(--accent-primary);
-  --background-soft: var(--bg-primary);
+  --accent-teal: var(--accent-primary);
+  --background-soft: var(--bg-light);
   --background-secondary: var(--bg-surface);
-  --text-main: var(--text-primary);
-  --border-color: rgba(158, 163, 173, 0.2);
-  --white: var(--bg-surface);
+  --text-main: var(--text-dark);
+  --border-color: rgba(90, 122, 149, 0.15);
+  --white: #FFFFFF;
   
-  /* Legacy color mappings for compatibility */
-  --primary-blue-legacy: var(--primary-blue);
-  --primary-dark: var(--primary-navy);
-  --secondary-orange: var(--accent-orange);
-  --accent-teal: var(--secondary-blue);
-  --neutral-dark: var(--text-main);
+  /* Legacy color mappings */
+  --primary-blue-legacy: var(--primary-teal);
+  --primary-dark: var(--primary-deep-blue);
+  --secondary-orange: var(--accent-primary);
+  --neutral-dark: var(--text-dark);
   --neutral-gray: var(--text-secondary);
-  --neutral-light: var(--background-soft);
+  --neutral-light: var(--bg-light);
   --success-green: #10B981;
   --error-red: #EF4444;
   
-  /* Typography - Premium Dual Font System */
-  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  /* Typography - Modern System (Poppins + Inter) */
+  --font-heading: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
   /* Spacing */
@@ -42,11 +55,12 @@
   --spacing-xl: 3rem;
   --spacing-2xl: 4rem;
   
-  /* Shadows - Dark-optimized for luxury aesthetic */
-  --shadow-sm: 0 1px 3px rgba(11, 13, 16, 0.20);
-  --shadow-md: 0 4px 12px rgba(11, 13, 16, 0.30);
-  --shadow-lg: 0 8px 24px rgba(11, 13, 16, 0.40);
-  --shadow-xl: 0 12px 32px rgba(11, 13, 16, 0.50);
+  /* Shadows - Light-optimized for modern aesthetic */
+  --shadow-sm: 0 1px 3px rgba(23, 59, 114, 0.08);
+  --shadow-md: 0 4px 12px rgba(23, 59, 114, 0.10);
+  --shadow-lg: 0 8px 24px rgba(23, 59, 114, 0.12);
+  --shadow-xl: 0 12px 32px rgba(23, 59, 114, 0.15);
+  --shadow-teal: 0 8px 24px rgba(47, 183, 168, 0.25);
   
   /* Border Radius */
   --radius-sm: 4px;
@@ -75,8 +89,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  background-color: var(--bg-light);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -98,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--text-primary);
+  color: var(--text-dark);
   letter-spacing: -0.02em;
 }
 
@@ -165,12 +179,12 @@ img {
 }
 
 .section-dark {
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  color: var(--white);
 }
 
 .bg-light {
-  background-color: var(--bg-surface);
+  background-color: var(--bg-light);
 }
 
 .text-center {
@@ -220,32 +234,34 @@ img {
 }
 
 .btn-primary {
-  background-color: var(--accent-primary);
-  color: var(--bg-primary);
-  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.3);
+  background: linear-gradient(135deg, var(--primary-teal) 0%, var(--bright-aqua) 100%);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(47, 183, 168, 0.3);
   font-weight: 700;
+  border-radius: 50px;
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-secondary);
+  background: linear-gradient(135deg, var(--bright-aqua) 0%, var(--primary-teal) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.4);
-  color: var(--bg-primary);
+  box-shadow: 0 8px 24px rgba(47, 183, 168, 0.4);
+  color: var(--white);
 }
 
 .btn-secondary {
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  box-shadow: 0 2px 8px rgba(21, 25, 34, 0.2);
-  border: 1px solid rgba(158, 163, 173, 0.2);
+  background-color: transparent;
+  color: var(--text-dark);
+  box-shadow: none;
+  border: 2px solid var(--primary-deep-blue);
+  border-radius: 50px;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(21, 25, 34, 0.8);
+  background-color: var(--primary-deep-blue);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(21, 25, 34, 0.3);
-  border-color: var(--accent-primary);
-  color: var(--text-primary);
+  box-shadow: 0 4px 16px rgba(23, 59, 114, 0.2);
+  border-color: var(--primary-deep-blue);
+  color: var(--white);
 }
 
 .btn-outline {
@@ -271,18 +287,18 @@ img {
 
 /* Card Styles */
 .card {
-  background-color: var(--bg-surface);
+  background-color: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   padding: var(--spacing-lg);
   transition: all var(--transition-base);
-  border: 1px solid rgba(158, 163, 173, 0.15);
+  border: 1px solid rgba(100, 116, 139, 0.1);
 }
 
 .card:hover {
   box-shadow: var(--shadow-xl);
   transform: translateY(-4px);
-  border-color: rgba(201, 162, 39, 0.3);
+  border-color: rgba(78, 205, 196, 0.3);
 }
 
 /* Form Styles */
@@ -294,7 +310,7 @@ img {
   display: block;
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  color: var(--accent-secondary);
+  color: var(--text-dark);
   font-size: 0.9375rem;
 }
 
@@ -304,18 +320,18 @@ img {
   font-size: 1rem;
   font-family: var(--font-body);
   font-weight: 400;
-  color: var(--text-primary);
-  border: 1px solid rgba(158, 163, 173, 0.2);
+  color: var(--text-dark);
+  border: 1px solid rgba(100, 116, 139, 0.2);
   border-radius: var(--radius-md);
-  background-color: var(--bg-surface);
+  background-color: var(--white);
   transition: all var(--transition-base);
 }
 
 .form-control:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
-  background-color: var(--bg-surface);
+  box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.1);
+  background-color: var(--white);
 }
 
 .form-control::placeholder {
@@ -383,7 +399,7 @@ textarea.form-control {
 
 /* Loading Spinner */
 .spinner {
-  border: 3px solid rgba(201, 162, 39, 0.1);
+  border: 3px solid rgba(78, 205, 196, 0.1);
   border-top-color: var(--accent-primary);
   border-radius: var(--radius-full);
   width: 40px;

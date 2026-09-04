@@ -68,8 +68,9 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-overlay"></div>
-        <div className="container">
-          <div className="hero-content">
+        <div className="hero-content">
+          {/* Left Side - Text Content */}
+          <div className="hero-text">
             <h1 className="hero-title">
               Transform Your Future with <span className="hero-highlight">Awizo Hub</span>
             </h1>
@@ -93,6 +94,56 @@ const Home = () => {
                   <span>{badge.text}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right Side - Visual Composition */}
+          <div className="hero-visual">
+            <div className="hero-image-wrapper">
+              {/* Background Decorative Shapes */}
+              <div className="hero-shape shape-1"></div>
+              <div className="hero-shape shape-2"></div>
+              
+              {/* Main Image */}
+              <div className="hero-image-container">
+                <img 
+                  src="/src/assets/hero.png" 
+                  alt="Awizo Hub - Digital Marketing & Education Services" 
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=800&fit=crop';
+                  }}
+                />
+              </div>
+
+              {/* Floating Metric Cards */}
+              <div className="floating-card card-1">
+                <FaStar className="floating-card-icon" />
+                <div className="floating-card-content">
+                  <h4>500+</h4>
+                  <p>Happy Clients</p>
+                </div>
+              </div>
+
+              <div className="floating-card card-2">
+                <FaCheckCircle className="floating-card-icon" />
+                <div className="floating-card-content">
+                  <h4>98%</h4>
+                  <p>Success Rate</p>
+                </div>
+              </div>
+
+              <div className="floating-card card-3">
+                <FaBullhorn className="floating-card-icon" />
+                <div className="floating-card-content">
+                  <h4>4.9/5</h4>
+                  <p>Average Rating</p>
+                </div>
+              </div>
+
+              {/* Decorative Lines */}
+              <div className="hero-decorative-line line-1"></div>
+              <div className="hero-decorative-line line-2"></div>
             </div>
           </div>
         </div>
@@ -133,12 +184,14 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="section why-choose-section bg-light">
+      <section className="section why-choose-section">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6">
               <div className="section-header">
-                <h2>Why Choose Awizo Hub?</h2>
+                <h2>
+                  Empowering Careers. <span className="highlight">Building Futures.</span>
+                </h2>
                 <p className="section-subtitle">
                   We're committed to delivering exceptional results and helping you achieve your goals with confidence.
                 </p>
@@ -160,9 +213,36 @@ const Home = () => {
                 <img 
                   src="/images/why-choose-us.jpg" 
                   alt="Why Choose Awizo Hub" 
-                  onError={(e) => e.target.style.display = 'none'}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=800&fit=crop';
+                  }}
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="stats-section">
+        <div className="container">
+          <div className="stats-container">
+            <div className="stat-item">
+              <div className="stat-number">500+</div>
+              <div className="stat-label">Happy Clients</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">50+</div>
+              <div className="stat-label">Projects Completed</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">98%</div>
+              <div className="stat-label">Success Rate</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">4.9/5</div>
+              <div className="stat-label">Average Rating</div>
             </div>
           </div>
         </div>

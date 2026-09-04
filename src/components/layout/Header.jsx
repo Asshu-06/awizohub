@@ -79,7 +79,16 @@ const Header = () => {
           <div className="navbar-content">
             {/* Logo */}
             <Link to="/" className="logo">
-              <span className="logo-text">Awizo Hub</span>
+              <img 
+                src="/awizo-logo.png" 
+                alt="Awizo Hub" 
+                className="logo-image"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'inline';
+                }}
+              />
+              <span className="logo-text" style={{ display: 'none' }}>Awizo Hub</span>
             </Link>
 
             {/* Desktop Navigation */}
