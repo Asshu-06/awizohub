@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or sensitive pages if any
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.awizohub.com/sitemap.xml

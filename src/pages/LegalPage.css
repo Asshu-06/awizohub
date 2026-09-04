@@ -1,0 +1,34 @@
+.legal-content {
+  padding: var(--spacing-2xl) 0;
+}
+
+.legal-text {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.legal-text h2 {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-navy);
+  font-weight: 700;
+}
+
+.legal-text p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+  font-weight: 400;
+}
+
+.legal-text ul {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+.legal-text li {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 400;
+}
