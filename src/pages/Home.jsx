@@ -9,6 +9,7 @@ import {
   FaArrowRight
 } from 'react-icons/fa';
 import ContactForm from '../components/common/ContactForm';
+import heroImage from '../assets/hero.png';
 import './Home.css';
 
 const Home = () => {
@@ -107,7 +108,7 @@ const Home = () => {
               {/* Main Image */}
               <div className="hero-image-container">
                 <img 
-                  src="/src/assets/hero.png" 
+                  src={heroImage} 
                   alt="Awizo Hub - Digital Marketing & Education Services" 
                   onError={(e) => {
                     e.target.onerror = null;
