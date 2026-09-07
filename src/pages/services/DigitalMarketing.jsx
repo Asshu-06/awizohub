@@ -1,51 +1,99 @@
 import { FaBullhorn, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
+import videoEditingBg from '../../assets/videos/video editing.mp4';
 import './ServiceDetail.css';
 
 const DigitalMarketing = () => {
   const services = [
     {
+      id: 'video-editing',
+      title: 'Video Editing & Content Creation',
+      description: 'Professional video editing, motion graphics, and engaging video content for social media, YouTube, and advertising campaigns.'
+    },
+    {
+      id: 'branding',
+      title: 'Branding & Brand Identity',
+      description: 'Complete brand identity design including logo design, brand guidelines, color schemes, and visual identity systems.'
+    },
+    {
+      id: 'meta-ads',
       title: 'Meta Ads (Facebook & Instagram)',
-      description: 'Reach your target audience with precision-targeted ad campaigns on Facebook and Instagram.'
+      description: 'Reach your target audience with precision-targeted ad campaigns on Facebook and Instagram with proven ROI.'
     },
     {
+      id: 'google-ads',
       title: 'Google Ads & PPC',
-      description: 'Drive qualified traffic to your website with optimized Google Ads and pay-per-click campaigns.'
+      description: 'Drive qualified traffic to your website with optimized Google Ads, search ads, display ads, and pay-per-click campaigns.'
     },
     {
-      title: 'Social Media Marketing',
-      description: 'Build brand awareness and engage your audience across all major social media platforms.'
+      id: 'social-media',
+      title: 'Social Media Marketing & Management',
+      description: 'Build brand awareness and engage your audience across all major social media platforms with consistent content strategy.'
     },
     {
-      title: 'Lead Generation',
-      description: 'Convert prospects into customers with strategic lead generation campaigns.'
+      id: 'seo',
+      title: 'Search Engine Optimization (SEO)',
+      description: 'Improve your organic search rankings and visibility with on-page, off-page, and technical SEO strategies.'
     },
     {
-      title: 'Social Media Management',
-      description: 'Professional management of your social media accounts with consistent, engaging content.'
+      id: 'content-marketing',
+      title: 'Content Marketing & Copywriting',
+      description: 'Compelling content creation including blog posts, articles, website copy, and marketing materials that convert.'
     },
     {
-      title: 'Creative Design & Posters',
-      description: 'Eye-catching visual content and designs that resonate with your target audience.'
+      id: 'email-marketing',
+      title: 'Email Marketing Campaigns',
+      description: 'Build and nurture customer relationships with targeted email campaigns, newsletters, and automated sequences.'
+    },
+    {
+      id: 'lead-generation',
+      title: 'Lead Generation & Conversion Optimization',
+      description: 'Convert prospects into customers with strategic lead generation campaigns and landing page optimization.'
+    },
+    {
+      id: 'creative-design',
+      title: 'Creative Design & Graphics',
+      description: 'Eye-catching visual content, social media graphics, posters, banners, and designs that resonate with your audience.'
+    },
+    {
+      id: 'influencer-marketing',
+      title: 'Influencer Marketing',
+      description: 'Connect with relevant influencers to amplify your brand message and reach new audiences authentically.'
+    },
+    {
+      id: 'analytics',
+      title: 'Analytics & Performance Tracking',
+      description: 'Data-driven insights with comprehensive analytics, performance reports, and actionable recommendations for growth.'
     }
   ];
 
   const benefits = [
-    'Increase Brand Visibility',
-    'Generate Quality Leads',
+    'Increase Brand Visibility & Awareness',
+    'Generate High-Quality Leads',
     'Improve ROI on Ad Spend',
-    'Build Customer Engagement',
-    'Data-Driven Strategies',
-    'Transparent Reporting'
+    'Build Strong Customer Engagement',
+    'Data-Driven Marketing Strategies',
+    'Transparent Reporting & Analytics',
+    'Professional Creative Content',
+    'Expert Team with Proven Results'
   ];
 
   return (
     <div className="service-detail-page">
       {/* Hero Section */}
       <section className="service-hero">
+        <video 
+          className="service-hero-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={videoEditingBg} type="video/mp4" />
+        </video>
+        <div className="service-hero-overlay"></div>
         <div className="container">
           <div className="service-hero-content">
-            <FaBullhorn className="service-hero-icon" />
             <h1>Digital Marketing Services</h1>
             <p>
               Transform your online presence with comprehensive digital marketing solutions 
@@ -104,7 +152,7 @@ const DigitalMarketing = () => {
           </div>
           <div className="services-list-grid">
             {services.map((service, index) => (
-              <div key={index} className="service-list-item">
+              <div key={index} id={service.id} className="service-list-item">
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
               </div>

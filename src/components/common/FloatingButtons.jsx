@@ -3,12 +3,9 @@ import { trackButtonClick } from '../../utils/analytics';
 import './FloatingButtons.css';
 
 const FloatingButtons = () => {
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+1234567890';
-  const phoneNumber = import.meta.env.VITE_PHONE_NUMBER || '+1234567890';
-
-  // Format WhatsApp number (remove spaces, dashes, and + for the URL)
-  const whatsappFormatted = whatsappNumber.replace(/[^0-9]/g, '');
-  const whatsappUrl = `https://wa.me/${whatsappFormatted}?text=Hi, I'm interested in your services`;
+  const phoneNumber = '7845787567';
+  const whatsappNumber = '917845787567'; // with country code for WhatsApp
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi, I'm interested in your services`;
 
   const handleWhatsAppClick = () => {
     trackButtonClick('whatsapp_floating', 'floating_buttons');

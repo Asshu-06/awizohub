@@ -1,70 +1,100 @@
 import { FaGraduationCap, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
+import typingVideo from '../../assets/videos/typingfemale.mp4';
 import './ServiceDetail.css';
 
 const AbroadEducation = () => {
   const services = [
-    { title: 'University Selection', description: 'Find the perfect university that matches your academic goals and budget.' },
-    { title: 'Course Guidance', description: 'Choose the right course and specialization for your career aspirations.' },
-    { title: 'Application Support', description: 'Complete application assistance including SOP, LOR, and document preparation.' },
-    { title: 'Visa Guidance', description: 'Expert guidance on visa application process and interview preparation.' },
-    { title: 'Scholarship Assistance', description: 'Identify and apply for scholarships to fund your education abroad.' },
-    { title: 'Pre-Departure Briefing', description: 'Prepare for your journey with comprehensive pre-departure orientation.' }
+    {
+      id: 'university-selection',
+      title: 'University Selection & Research',
+      description: 'Expert guidance on selecting the right universities and programs based on your academic profile, career goals, and budget considerations.'
+    },
+    {
+      id: 'application-support',
+      title: 'Application Support & Documentation',
+      description: 'Complete assistance with application forms, document preparation, and submission to ensure error-free applications to your dream universities.'
+    },
+    {
+      id: 'visa-guidance',
+      title: 'Visa Guidance & Processing',
+      description: 'Step-by-step visa application support including document checklist, interview preparation, and follow-up until visa approval.'
+    },
+    {
+      id: 'course-planning',
+      title: 'Course Planning & Selection',
+      description: 'Personalized course recommendations aligned with your interests, career aspirations, and market demand in your target country.'
+    },
+    {
+      id: 'sop-lor',
+      title: 'SOP & LOR Assistance',
+      description: 'Professional help crafting compelling Statement of Purpose and securing strong Letters of Recommendation that stand out to admissions committees.'
+    },
+    {
+      id: 'scholarships',
+      title: 'Scholarship Guidance & Financial Aid',
+      description: 'Identify scholarship opportunities, prepare applications, and maximize your chances of receiving financial aid for your studies abroad.'
+    },
+    {
+      id: 'pre-departure',
+      title: 'Pre-Departure Briefing & Orientation',
+      description: 'Comprehensive pre-departure sessions covering travel, accommodation, cultural adaptation, and essential tips for international students.'
+    },
+    {
+      id: 'post-arrival',
+      title: 'Post-Arrival Support & Assistance',
+      description: 'Ongoing support after you reach your destination including local orientation, bank account setup, and settling-in guidance.'
+    }
   ];
 
-  const benefits = ['Expert Counselors', 'University Partnerships', 'High Success Rate', 'Visa Support', 'Scholarship Guidance', 'Post-Arrival Support'];
+  const benefits = [
+    'Expert University Counseling',
+    'Application Strategy Planning',
+    'Visa Application Assistance',
+    'Scholarship Discovery Support',
+    'Document Preparation Help',
+    'Pre-Departure Orientation',
+    'Accommodation Guidance',
+    'Cultural Adaptation Support'
+  ];
 
   return (
     <div className="service-detail-page">
+      {/* Hero Section */}
       <section className="service-hero">
+        <video 
+          className="service-hero-video" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={typingVideo} type="video/mp4" />
+        </video>
+        <div className="service-hero-overlay"></div>
         <div className="container">
           <div className="service-hero-content">
-            <FaGraduationCap className="service-hero-icon" />
             <h1>Abroad Education Guidance</h1>
-            <p>Turn your study abroad dreams into reality with expert counseling and comprehensive support.</p>
+            <p>
+              Achieve your study abroad dreams with expert guidance on university selection, 
+              applications, visas, and every step of your journey.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="section service-overview">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-6">
-              <h2>Study at World-Class Universities</h2>
-              <p>
-                Pursuing higher education abroad opens doors to world-class institutions, diverse cultures, 
-                and global career opportunities. Our abroad education guidance helps you navigate the complex 
-                application process with confidence.
-              </p>
-              <p>
-                From university selection to visa processing, we provide end-to-end support to ensure your 
-                study abroad journey is smooth and successful.
-              </p>
-              <h3 className="mt-4">Why Choose Our Services?</h3>
-              <ul className="benefits-list">
-                {benefits.map((benefit, index) => (
-                  <li key={index}><FaCheckCircle className="benefit-icon" /> {benefit}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="col-12 col-md-6">
-              <div className="service-image">
-                <img src="/images/abroad-education.jpg" alt="Abroad Education" onError={(e) => e.target.style.display = 'none'} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* Services List */}
       <section className="section services-list-section bg-light">
         <div className="container">
           <div className="section-header text-center">
             <h2>What We Offer</h2>
-            <p className="section-subtitle">Complete guidance for your study abroad journey</p>
+            <p className="section-subtitle">
+              End-to-end support for your study abroad journey from application to arrival
+            </p>
           </div>
           <div className="services-list-grid">
             {services.map((service, index) => (
-              <div key={index} className="service-list-item">
+              <div key={index} id={service.id} className="service-list-item">
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
               </div>
@@ -73,20 +103,27 @@ const AbroadEducation = () => {
         </div>
       </section>
 
+      {/* CTA + Form */}
       <section className="section service-cta-section">
         <div className="container">
           <div className="service-cta-grid">
             <div className="service-cta-content">
               <h2>Ready to Study Abroad?</h2>
-              <p>Start your journey today with expert guidance from our experienced counselors.</p>
+              <p>
+                Let's discuss your study abroad plans and how we can help you get into your dream university. 
+                Fill out the form and our education consultants will get back to you within 24 hours.
+              </p>
               <ul className="cta-points">
-                <li><FaCheckCircle /> Free counseling session</li>
-                <li><FaCheckCircle /> University & course recommendations</li>
-                <li><FaCheckCircle /> Application strategy planning</li>
+                <li><FaCheckCircle /> Free study abroad consultation</li>
+                <li><FaCheckCircle /> University shortlisting assistance</li>
+                <li><FaCheckCircle /> Scholarship opportunity discovery</li>
               </ul>
             </div>
             <div className="service-form">
-              <ContactForm formTitle="Start Your Application" defaultService="Abroad Education Guidance" />
+              <ContactForm 
+                formTitle="Request a Consultation" 
+                defaultService="Abroad Education Guidance"
+              />
             </div>
           </div>
         </div>

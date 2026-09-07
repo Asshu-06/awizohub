@@ -12,6 +12,7 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -32,22 +33,66 @@ const Header = () => {
     // Close mobile menu on route change
     setIsMenuOpen(false);
     setIsServicesOpen(false);
+    setOpenSubMenu(null);
   }, [location]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsServicesOpen(false);
+    setOpenSubMenu(null);
   };
 
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
+    setOpenSubMenu(null);
   };
 
-  const services = [
-    { name: 'Digital Marketing', path: '/services/digital-marketing' },
-    { name: 'IT Placement', path: '/services/it-placement' },
-    { name: 'Abroad Education', path: '/services/abroad-education' },
-    { name: 'Online Education', path: '/services/online-education' },
+  const toggleSubMenu = (serviceName) => {
+    setOpenSubMenu(openSubMenu === serviceName ? null : serviceName);
+  };
+
+  const servicesMenu = [
+    {
+      name: 'Digital Marketing',
+      path: '/services/digital-marketing',
+      subServices: [
+        { name: 'Meta Ads (Facebook & Instagram)', path: '/services/digital-marketing#meta-ads' },
+        { name: 'Google Ads & PPC', path: '/services/digital-marketing#google-ads' },
+        { name: 'Social Media Marketing', path: '/services/digital-marketing#social-media' },
+        { name: 'Lead Generation', path: '/services/digital-marketing#lead-generation' },
+        { name: 'Creative Design', path: '/services/digital-marketing#creative-design' },
+      ]
+    },
+    {
+      name: 'IT Placement',
+      path: '/services/it-placement',
+      subServices: [
+        { name: 'Job Placement Support', path: '/services/it-placement#job-placement' },
+        { name: 'Resume Building', path: '/services/it-placement#resume-building' },
+        { name: 'Interview Preparation', path: '/services/it-placement#interview-prep' },
+        { name: 'Career Counseling', path: '/services/it-placement#career-counseling' },
+      ]
+    },
+    {
+      name: 'Abroad Education',
+      path: '/services/abroad-education',
+      subServices: [
+        { name: 'University Selection', path: '/services/abroad-education#university-selection' },
+        { name: 'Application Support', path: '/services/abroad-education#application-support' },
+        { name: 'Visa Guidance', path: '/services/abroad-education#visa-guidance' },
+        { name: 'Scholarship Assistance', path: '/services/abroad-education#scholarships' },
+      ]
+    },
+    {
+      name: 'Online Education',
+      path: '/services/online-education',
+      subServices: [
+        { name: 'Online Degree Programs', path: '/services/online-education#online-degrees' },
+        { name: 'Course Selection', path: '/services/online-education#course-selection' },
+        { name: 'Admission Support', path: '/services/online-education#admission-support' },
+        { name: 'Learning Resources', path: '/services/online-education#learning-resources' },
+      ]
+    },
   ];
 
   return (
@@ -118,15 +163,24 @@ const Header = () => {
                 </button>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link to="/services" className="dropdown-item">
+                    <Link to="/services" className="dropdown-item dropdown-item-main">
                       All Services
                     </Link>
                   </li>
-                  {services.map((service) => (
-                    <li key={service.path}>
-                      <Link to={service.path} className="dropdown-item">
+                  {servicesMenu.map((service) => (
+                    <li key={service.path} className="dropdown-item-with-submenu">
+                      <Link to={service.path} className="dropdown-item dropdown-item-category">
                         {service.name}
                       </Link>
+                      <ul className="dropdown-submenu">
+                        {service.subServices.map((subService) => (
+                          <li key={subService.path}>
+                            <Link to={subService.path} className="dropdown-submenu-item">
+                              {subService.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </li>
                   ))}
                 </ul>
@@ -171,6 +225,13 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div className={`mobile-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+        <button 
+          className="mobile-menu-close"
+          onClick={toggleMenu}
+          aria-label="Close menu"
+        >
+          <FaTimes />
+        </button>
         <ul className="mobile-nav-menu">
           <li className="mobile-nav-item">
             <Link to="/" className="mobile-nav-link">
@@ -192,15 +253,30 @@ const Header = () => {
             {isServicesOpen && (
               <ul className="mobile-dropdown-menu">
                 <li>
-                  <Link to="/services" className="mobile-dropdown-item">
+                  <Link to="/services" className="mobile-dropdown-item mobile-dropdown-main">
                     All Services
                   </Link>
                 </li>
-                {services.map((service) => (
-                  <li key={service.path}>
-                    <Link to={service.path} className="mobile-dropdown-item">
+                {servicesMenu.map((service) => (
+                  <li key={service.path} className="mobile-dropdown-category">
+                    <button 
+                      className="mobile-dropdown-item mobile-dropdown-category-button"
+                      onClick={() => toggleSubMenu(service.name)}
+                    >
                       {service.name}
-                    </Link>
+                      <FaChevronDown className={`submenu-toggle-icon ${openSubMenu === service.name ? 'rotated' : ''}`} />
+                    </button>
+                    {openSubMenu === service.name && (
+                      <ul className="mobile-submenu">
+                        {service.subServices.map((subService) => (
+                          <li key={subService.path}>
+                            <Link to={subService.path} className="mobile-submenu-item">
+                              {subService.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>
