@@ -1,6 +1,6 @@
 import { FaGraduationCap, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
-import typingVideo from '../../assets/videos/typingfemale.mp4';
+import abroadEducationVideo from '../../assets/videos/AbroadEducation.mp4';
 import './ServiceDetail.css';
 
 const AbroadEducation = () => {
@@ -8,42 +8,50 @@ const AbroadEducation = () => {
     {
       id: 'university-selection',
       title: 'University Selection & Research',
-      description: 'Expert guidance on selecting the right universities and programs based on your academic profile, career goals, and budget considerations.'
+      description: 'Expert guidance on selecting the right universities and programs based on your academic profile, career goals, and budget considerations.',
+      video: abroadEducationVideo
     },
     {
       id: 'application-support',
       title: 'Application Support & Documentation',
-      description: 'Complete assistance with application forms, document preparation, and submission to ensure error-free applications to your dream universities.'
+      description: 'Complete assistance with application forms, document preparation, and submission to ensure error-free applications to your dream universities.',
+      video: abroadEducationVideo
     },
     {
       id: 'visa-guidance',
       title: 'Visa Guidance & Processing',
-      description: 'Step-by-step visa application support including document checklist, interview preparation, and follow-up until visa approval.'
+      description: 'Step-by-step visa application support including document checklist, interview preparation, and follow-up until visa approval.',
+      video: abroadEducationVideo
     },
     {
       id: 'course-planning',
       title: 'Course Planning & Selection',
-      description: 'Personalized course recommendations aligned with your interests, career aspirations, and market demand in your target country.'
+      description: 'Personalized course recommendations aligned with your interests, career aspirations, and market demand in your target country.',
+      video: abroadEducationVideo
     },
     {
       id: 'sop-lor',
       title: 'SOP & LOR Assistance',
-      description: 'Professional help crafting compelling Statement of Purpose and securing strong Letters of Recommendation that stand out to admissions committees.'
+      description: 'Professional help crafting compelling Statement of Purpose and securing strong Letters of Recommendation that stand out to admissions committees.',
+      video: abroadEducationVideo
     },
     {
       id: 'scholarships',
       title: 'Scholarship Guidance & Financial Aid',
-      description: 'Identify scholarship opportunities, prepare applications, and maximize your chances of receiving financial aid for your studies abroad.'
+      description: 'Identify scholarship opportunities, prepare applications, and maximize your chances of receiving financial aid for your studies abroad.',
+      video: abroadEducationVideo
     },
     {
       id: 'pre-departure',
       title: 'Pre-Departure Briefing & Orientation',
-      description: 'Comprehensive pre-departure sessions covering travel, accommodation, cultural adaptation, and essential tips for international students.'
+      description: 'Comprehensive pre-departure sessions covering travel, accommodation, cultural adaptation, and essential tips for international students.',
+      video: abroadEducationVideo
     },
     {
       id: 'post-arrival',
       title: 'Post-Arrival Support & Assistance',
-      description: 'Ongoing support after you reach your destination including local orientation, bank account setup, and settling-in guidance.'
+      description: 'Ongoing support after you reach your destination including local orientation, bank account setup, and settling-in guidance.',
+      video: abroadEducationVideo
     }
   ];
 
@@ -62,15 +70,6 @@ const AbroadEducation = () => {
     <div className="service-detail-page">
       {/* Hero Section */}
       <section className="service-hero">
-        <video 
-          className="service-hero-video" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        >
-          <source src={typingVideo} type="video/mp4" />
-        </video>
         <div className="service-hero-overlay"></div>
         <div className="container">
           <div className="service-hero-content">
@@ -97,6 +96,45 @@ const AbroadEducation = () => {
               <div key={index} id={service.id} className="service-list-item">
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
+                
+                {/* Video Section */}
+                {service.video && (
+                  <div className="service-video-container">
+                    <video 
+                      className="service-video" 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                    >
+                      <source src={service.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
+                
+                <div className="service-inquiry-form">
+                  <h5>Interested in {service.title}?</h5>
+                  <form 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const formData = new FormData(e.target);
+                      const name = formData.get('name');
+                      const phone = formData.get('phone');
+                      const email = formData.get('email');
+                      const message = formData.get('message');
+                      
+                      const whatsappMessage = `*New Inquiry - ${service.title}*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Message:* ${message}`;
+                      window.open(`https://wa.me/917845787567?text=${whatsappMessage}`, '_blank');
+                    }}
+                  >
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="tel" name="phone" placeholder="Phone Number" required />
+                    <input type="email" name="email" placeholder="Email Address" required />
+                    <textarea name="message" placeholder="Tell us about your requirements" rows="3"></textarea>
+                    <button type="submit" className="btn btn-primary">Send to WhatsApp</button>
+                  </form>
+                </div>
               </div>
             ))}
           </div>

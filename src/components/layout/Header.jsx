@@ -59,8 +59,13 @@ const Header = () => {
         { name: 'Meta Ads (Facebook & Instagram)', path: '/services/digital-marketing#meta-ads' },
         { name: 'Google Ads & PPC', path: '/services/digital-marketing#google-ads' },
         { name: 'Social Media Marketing', path: '/services/digital-marketing#social-media' },
-        { name: 'Lead Generation', path: '/services/digital-marketing#lead-generation' },
-        { name: 'Creative Design', path: '/services/digital-marketing#creative-design' },
+        { name: 'Web Development', path: '/services/digital-marketing#web-development' },
+        { name: 'App Development', path: '/services/digital-marketing#app-development' },
+        { name: 'Software Development', path: '/services/digital-marketing#software-development' },
+        { name: 'POS Systems', path: '/services/digital-marketing#pos-systems' },
+        { name: 'CMS Solutions', path: '/services/digital-marketing#cms-solutions' },
+        { name: 'SEO Optimization', path: '/services/digital-marketing#seo-optimization' },
+        { name: 'Google Mapping', path: '/services/digital-marketing#google-mapping' },
       ]
     },
     {

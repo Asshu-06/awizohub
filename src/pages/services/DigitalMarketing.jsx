@@ -1,6 +1,12 @@
 import { FaBullhorn, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
 import videoEditingBg from '../../assets/videos/video editing.mp4';
+import videoEditing2 from '../../assets/videos/videoediting2.mp4';
+import digitalMarketingVideo from '../../assets/videos/DigitalMarketing.mp4';
+import typingMaleVideo from '../../assets/videos/typingmale.mp4';
+import typingFemaleVideo from '../../assets/videos/typingfemale.mp4';
+import goodTypingVideo from '../../assets/videos/goodtyping.mp4';
+import boyTypingVideo from '../../assets/videos/boytyping.mp4';
 import './ServiceDetail.css';
 
 const DigitalMarketing = () => {
@@ -8,62 +14,110 @@ const DigitalMarketing = () => {
     {
       id: 'video-editing',
       title: 'Video Editing & Content Creation',
-      description: 'Professional video editing, motion graphics, and engaging video content for social media, YouTube, and advertising campaigns.'
+      description: 'Professional video editing, motion graphics, and engaging video content for social media, YouTube, and advertising campaigns.',
+      video: videoEditing2
     },
     {
       id: 'branding',
       title: 'Branding & Brand Identity',
-      description: 'Complete brand identity design including logo design, brand guidelines, color schemes, and visual identity systems.'
+      description: 'Complete brand identity design including logo design, brand guidelines, color schemes, and visual identity systems.',
+      video: digitalMarketingVideo
     },
     {
       id: 'meta-ads',
       title: 'Meta Ads (Facebook & Instagram)',
-      description: 'Reach your target audience with precision-targeted ad campaigns on Facebook and Instagram with proven ROI.'
+      description: 'Reach your target audience with precision-targeted ad campaigns on Facebook and Instagram with proven ROI.',
+      video: digitalMarketingVideo
     },
     {
       id: 'google-ads',
       title: 'Google Ads & PPC',
-      description: 'Drive qualified traffic to your website with optimized Google Ads, search ads, display ads, and pay-per-click campaigns.'
+      description: 'Drive qualified traffic to your website with optimized Google Ads, search ads, display ads, and pay-per-click campaigns.',
+      video: digitalMarketingVideo
     },
     {
       id: 'social-media',
       title: 'Social Media Marketing & Management',
-      description: 'Build brand awareness and engage your audience across all major social media platforms with consistent content strategy.'
+      description: 'Build brand awareness and engage your audience across all major social media platforms with consistent content strategy.',
+      video: digitalMarketingVideo
     },
     {
-      id: 'seo',
-      title: 'Search Engine Optimization (SEO)',
-      description: 'Improve your organic search rankings and visibility with on-page, off-page, and technical SEO strategies.'
+      id: 'web-development',
+      title: 'Web Development',
+      description: 'Custom website development with modern technologies, responsive design, and optimized performance for your business needs.',
+      video: typingMaleVideo
+    },
+    {
+      id: 'app-development',
+      title: 'App Development',
+      description: 'Native and cross-platform mobile app development for iOS and Android with intuitive user experiences.',
+      video: typingFemaleVideo
+    },
+    {
+      id: 'software-development',
+      title: 'Software Development',
+      description: 'Custom software solutions tailored to your business processes, from enterprise applications to automation tools.',
+      video: boyTypingVideo
+    },
+    {
+      id: 'pos-systems',
+      title: 'POS Systems',
+      description: 'Point of Sale systems for retail and restaurants with inventory management, billing, and analytics capabilities.',
+      video: goodTypingVideo
+    },
+    {
+      id: 'cms-solutions',
+      title: 'CMS Solutions',
+      description: 'Content Management Systems for easy website updates, e-commerce platforms, and digital content management.',
+      video: goodTypingVideo
+    },
+    {
+      id: 'seo-optimization',
+      title: 'SEO Optimization',
+      description: 'Improve your organic search rankings and visibility with on-page, off-page, and technical SEO strategies.',
+      video: digitalMarketingVideo
+    },
+    {
+      id: 'google-mapping',
+      title: 'Google Mapping & Local SEO',
+      description: 'Get your business on Google Maps, optimize local search presence, and manage Google My Business listings.',
+      video: digitalMarketingVideo
     },
     {
       id: 'content-marketing',
       title: 'Content Marketing & Copywriting',
-      description: 'Compelling content creation including blog posts, articles, website copy, and marketing materials that convert.'
+      description: 'Compelling content creation including blog posts, articles, website copy, and marketing materials that convert.',
+      video: digitalMarketingVideo
     },
     {
       id: 'email-marketing',
       title: 'Email Marketing Campaigns',
-      description: 'Build and nurture customer relationships with targeted email campaigns, newsletters, and automated sequences.'
+      description: 'Build and nurture customer relationships with targeted email campaigns, newsletters, and automated sequences.',
+      video: digitalMarketingVideo
     },
     {
       id: 'lead-generation',
       title: 'Lead Generation & Conversion Optimization',
-      description: 'Convert prospects into customers with strategic lead generation campaigns and landing page optimization.'
+      description: 'Convert prospects into customers with strategic lead generation campaigns and landing page optimization.',
+      video: digitalMarketingVideo
     },
     {
       id: 'creative-design',
       title: 'Creative Design & Graphics',
-      description: 'Eye-catching visual content, social media graphics, posters, banners, and designs that resonate with your audience.'
+      description: 'Eye-catching visual content, social media graphics, posters, banners, and designs that resonate with your audience.',
+      video: videoEditing2
     },
     {
       id: 'influencer-marketing',
       title: 'Influencer Marketing',
-      description: 'Connect with relevant influencers to amplify your brand message and reach new audiences authentically.'
+      description: 'Connect with relevant influencers to amplify your brand message and reach new audiences authentically.',
+      video: digitalMarketingVideo
     },
     {
       id: 'analytics',
       title: 'Analytics & Performance Tracking',
-      description: 'Data-driven insights with comprehensive analytics, performance reports, and actionable recommendations for growth.'
+      description: 'Data-driven insights with comprehensive analytics, performance reports, and actionable recommendations for growth.',
+      video: digitalMarketingVideo
     }
   ];
 
@@ -82,15 +136,6 @@ const DigitalMarketing = () => {
     <div className="service-detail-page">
       {/* Hero Section */}
       <section className="service-hero">
-        <video 
-          className="service-hero-video" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        >
-          <source src={videoEditingBg} type="video/mp4" />
-        </video>
         <div className="service-hero-overlay"></div>
         <div className="container">
           <div className="service-hero-content">
@@ -155,6 +200,45 @@ const DigitalMarketing = () => {
               <div key={index} id={service.id} className="service-list-item">
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
+                
+                {/* Video Section */}
+                {service.video && (
+                  <div className="service-video-container">
+                    <video 
+                      className="service-video" 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                    >
+                      <source src={service.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
+                
+                <div className="service-inquiry-form">
+                  <h5>Interested in {service.title}?</h5>
+                  <form 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const formData = new FormData(e.target);
+                      const name = formData.get('name');
+                      const phone = formData.get('phone');
+                      const email = formData.get('email');
+                      const message = formData.get('message');
+                      
+                      const whatsappMessage = `*New Inquiry - ${service.title}*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Message:* ${message}`;
+                      window.open(`https://wa.me/917845787567?text=${whatsappMessage}`, '_blank');
+                    }}
+                  >
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="tel" name="phone" placeholder="Phone Number" required />
+                    <input type="email" name="email" placeholder="Email Address" required />
+                    <textarea name="message" placeholder="Tell us about your requirements" rows="3"></textarea>
+                    <button type="submit" className="btn btn-primary">Send to WhatsApp</button>
+                  </form>
+                </div>
               </div>
             ))}
           </div>
