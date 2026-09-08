@@ -24,7 +24,7 @@ const OnlineEducation = () => {
       id: 'admission-support',
       title: 'Admission Support & Application',
       description: 'Complete assistance with online program admissions including application preparation, document submission, and deadline management.',
-      video: typingFemaleVideo
+      video: '/career.mp4'
     },
     {
       id: 'learning-resources',
@@ -42,7 +42,7 @@ const OnlineEducation = () => {
       id: 'enrollment-guidance',
       title: 'Enrollment Guidance & Support',
       description: 'Step-by-step enrollment assistance including registration, payment options, financial aid applications, and course scheduling.',
-      video: typingMaleVideo
+      video: '/career.mp4'
     },
     {
       id: 'technical-setup',

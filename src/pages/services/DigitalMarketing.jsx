@@ -33,7 +33,7 @@ const DigitalMarketing = () => {
       id: 'google-ads',
       title: 'Google Ads & PPC',
       description: 'Drive qualified traffic to your website with optimized Google Ads, search ads, display ads, and pay-per-click campaigns.',
-      video: digitalMarketingVideo
+      video: '/google.mp4'
     },
     {
       id: 'social-media',

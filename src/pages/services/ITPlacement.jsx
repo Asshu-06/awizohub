@@ -1,6 +1,5 @@
 import { FaBriefcase, FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
-import typingMaleVideo from '../../assets/videos/typingmale.mp4';
 import typingFemaleVideo from '../../assets/videos/typingfemale.mp4';
 import boyTypingVideo from '../../assets/videos/boytyping.mp4';
 import goodTypingVideo from '../../assets/videos/goodtyping.mp4';
@@ -12,13 +11,13 @@ const ITPlacement = () => {
       id: 'job-placement',
       title: 'Job Placement Support',
       description: 'Connect with top IT companies and receive personalized job matching services tailored to your skills, experience, and career goals.',
-      video: typingMaleVideo
+      video: '/job.mp4'
     },
     {
       id: 'resume-building',
       title: 'Resume Building & Optimization',
       description: 'Professional resume writing and optimization to highlight your technical skills, projects, and achievements that recruiters are looking for.',
-      video: typingFemaleVideo
+      video: '/resume.mp4'
     },
     {
       id: 'interview-prep',
@@ -36,13 +35,13 @@ const ITPlacement = () => {
       id: 'career-counseling',
       title: 'Career Counseling & Planning',
       description: 'One-on-one career guidance to help you choose the right career path, technologies, and growth opportunities in IT industry.',
-      video: typingMaleVideo
+      video: '/job.mp4'
     },
     {
       id: 'linkedin-optimization',
       title: 'LinkedIn Profile Enhancement',
       description: 'Optimize your LinkedIn profile to attract recruiters with strategic keyword placement, compelling summary, and professional branding.',
-      video: typingFemaleVideo
+      video: '/social.mp4'
     },
     {
       id: 'mock-interviews',
@@ -54,7 +53,7 @@ const ITPlacement = () => {
       id: 'placement-followup',
       title: 'Placement Follow-up & Support',
       description: 'Continuous support even after placement including onboarding guidance, salary negotiation tips, and career growth advice.',
-      video: goodTypingVideo
+      video: '/placementfollow.mp4'
     }
   ];
 
