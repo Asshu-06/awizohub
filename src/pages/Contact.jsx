@@ -23,7 +23,7 @@ const Contact = () => {
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      content: 'Your Business Address, City, State, ZIP',
+      content: 'India',
       link: null
     },
     {
