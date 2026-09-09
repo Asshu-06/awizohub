@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   FaBars, 
   FaTimes, 
@@ -15,10 +15,45 @@ const Header = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const phoneNumber = '7845787567';
   const whatsappNumber = '917845787567'; // with country code for WhatsApp
   const email = import.meta.env.VITE_EMAIL || 'info@awizohub.com';
+
+  // Scroll to section helper
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 120; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle navigation to home sections
+  const handleSectionNavigation = (sectionId) => {
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    setOpenSubMenu(null);
+
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      scrollToSection(sectionId);
+    } else {
+      // Navigate to home first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,52 +87,30 @@ const Header = () => {
   };
 
   const servicesMenu = [
-    {
-      name: 'Digital Marketing',
-      path: '/services/digital-marketing',
-      subServices: [
-        { name: 'Meta Ads (Facebook & Instagram)', path: '/services/digital-marketing#meta-ads' },
-        { name: 'Google Ads & PPC', path: '/services/digital-marketing#google-ads' },
-        { name: 'Social Media Marketing', path: '/services/digital-marketing#social-media' },
-        { name: 'Web Development', path: '/services/digital-marketing#web-development' },
-        { name: 'App Development', path: '/services/digital-marketing#app-development' },
-        { name: 'Software Development', path: '/services/digital-marketing#software-development' },
-        { name: 'POS Systems', path: '/services/digital-marketing#pos-systems' },
-        { name: 'CMS Solutions', path: '/services/digital-marketing#cms-solutions' },
-        { name: 'SEO Optimization', path: '/services/digital-marketing#seo-optimization' },
-        { name: 'Google Mapping', path: '/services/digital-marketing#google-mapping' },
-      ]
-    },
-    {
-      name: 'IT Placement',
-      path: '/services/it-placement',
-      subServices: [
-        { name: 'Job Placement Support', path: '/services/it-placement#job-placement' },
-        { name: 'Resume Building', path: '/services/it-placement#resume-building' },
-        { name: 'Interview Preparation', path: '/services/it-placement#interview-prep' },
-        { name: 'Career Counseling', path: '/services/it-placement#career-counseling' },
-      ]
-    },
-    {
-      name: 'Abroad Education',
-      path: '/services/abroad-education',
-      subServices: [
-        { name: 'University Selection', path: '/services/abroad-education#university-selection' },
-        { name: 'Application Support', path: '/services/abroad-education#application-support' },
-        { name: 'Visa Guidance', path: '/services/abroad-education#visa-guidance' },
-        { name: 'Scholarship Assistance', path: '/services/abroad-education#scholarships' },
-      ]
-    },
-    {
-      name: 'Online Education',
-      path: '/services/online-education',
-      subServices: [
-        { name: 'Online Degree Programs', path: '/services/online-education#online-degrees' },
-        { name: 'Course Selection', path: '/services/online-education#course-selection' },
-        { name: 'Admission Support', path: '/services/online-education#admission-support' },
-        { name: 'Learning Resources', path: '/services/online-education#learning-resources' },
-      ]
-    },
+    { name: 'Web Design & Development', path: '/#web-design', icon: '🌐' },
+    { name: 'SEO & Performance Marketing', path: '/#seo-marketing', icon: '📊' },
+    { name: 'Cloud Hosting & Infrastructure', path: '/#cloud-hosting', icon: '☁️' },
+    { name: 'CRM & Automation', path: '/#crm-automation', icon: '⚡' },
+    { name: 'Digital Strategy & Growth', path: '/#digital-strategy', icon: '🎯' },
+    { name: 'AI Lead Generation', path: '/#ai-lead-generation', icon: '🤖' },
+    { name: 'Video Editing & Production', path: '/#video-editing', icon: '🎬' },
+    { name: 'Payment Gateway Integration', path: '/#payment-gateway', icon: '💳' },
+    { name: 'Online Education', path: '/#online-education', icon: '🎓' },
+    { name: 'Study Abroad', path: '/#study-abroad', icon: '🌍' },
+    { name: 'IT Placement Assistance', path: '/#it-placement', icon: '💼' }
+  ];
+
+  const digitalMarketingMenu = [
+    { name: 'Social Media Marketing', path: '/#digital-marketing', icon: '🟪' },
+    { name: 'Meta & Facebook Ads', path: '/#digital-marketing', icon: '🟦' },
+    { name: 'Email Marketing', path: '/#digital-marketing', icon: '✉️' },
+    { name: 'Video Marketing', path: '/#digital-marketing', icon: '🎥' },
+    { name: 'Local SEO', path: '/#digital-marketing', icon: '📍' },
+    { name: 'Google Ads Management', path: '/#digital-marketing', icon: '🎯' },
+    { name: 'Content Marketing', path: '/#digital-marketing', icon: '👍' },
+    { name: 'WhatsApp Marketing', path: '/#digital-marketing', icon: '💬' },
+    { name: 'Influencer Marketing', path: '/#digital-marketing', icon: '⭐' },
+    { name: 'E-Commerce Marketing', path: '/#digital-marketing', icon: '🛒' }
   ];
 
   return (
@@ -162,30 +175,47 @@ const Header = () => {
               <li className="nav-item nav-dropdown">
                 <button 
                   className={`nav-link ${location.pathname.startsWith('/services') ? 'active' : ''}`}
-                  onClick={toggleServices}
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="Services menu"
                 >
                   Services <FaChevronDown className="dropdown-icon" />
                 </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/services" className="dropdown-item dropdown-item-main">
-                      All Services
-                    </Link>
-                  </li>
-                  {servicesMenu.map((service) => (
-                    <li key={service.path} className="dropdown-item-with-submenu">
-                      <Link to={service.path} className="dropdown-item dropdown-item-category">
-                        {service.name}
-                      </Link>
-                      <ul className="dropdown-submenu">
-                        {service.subServices.map((subService) => (
-                          <li key={subService.path}>
-                            <Link to={subService.path} className="dropdown-submenu-item">
-                              {subService.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                <ul className="dropdown-menu dropdown-menu-services" role="menu">
+                  {servicesMenu.map((service, index) => (
+                    <li key={index} role="none">
+                      <button 
+                        onClick={() => handleSectionNavigation('services')}
+                        className="dropdown-item" 
+                        role="menuitem"
+                      >
+                        <span className="service-icon">{service.icon}</span>
+                        <span>{service.name}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+              <li className="nav-item nav-dropdown">
+                <button 
+                  className={`nav-link ${location.pathname.startsWith('/digital-marketing') ? 'active' : ''}`}
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="Digital Marketing menu"
+                >
+                  Digital Marketing <FaChevronDown className="dropdown-icon" />
+                </button>
+                <ul className="dropdown-menu dropdown-menu-digital-marketing" role="menu">
+                  {digitalMarketingMenu.map((item, index) => (
+                    <li key={index} role="none">
+                      <button 
+                        onClick={() => handleSectionNavigation('digital-marketing')}
+                        className="dropdown-item" 
+                        role="menuitem"
+                      >
+                        <span className="service-icon">{item.icon}</span>
+                        <span>{item.name}</span>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -257,31 +287,38 @@ const Header = () => {
             </button>
             {isServicesOpen && (
               <ul className="mobile-dropdown-menu">
-                <li>
-                  <Link to="/services" className="mobile-dropdown-item mobile-dropdown-main">
-                    All Services
-                  </Link>
-                </li>
-                {servicesMenu.map((service) => (
-                  <li key={service.path} className="mobile-dropdown-category">
+                {servicesMenu.map((service, index) => (
+                  <li key={index}>
                     <button 
-                      className="mobile-dropdown-item mobile-dropdown-category-button"
-                      onClick={() => toggleSubMenu(service.name)}
+                      onClick={() => handleSectionNavigation('services')}
+                      className="mobile-dropdown-item"
                     >
-                      {service.name}
-                      <FaChevronDown className={`submenu-toggle-icon ${openSubMenu === service.name ? 'rotated' : ''}`} />
+                      <span className="service-icon">{service.icon}</span>
+                      <span>{service.name}</span>
                     </button>
-                    {openSubMenu === service.name && (
-                      <ul className="mobile-submenu">
-                        {service.subServices.map((subService) => (
-                          <li key={subService.path}>
-                            <Link to={subService.path} className="mobile-submenu-item">
-                              {subService.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+          <li className="mobile-nav-item">
+            <button 
+              className="mobile-nav-link mobile-dropdown-toggle"
+              onClick={() => setOpenSubMenu(openSubMenu === 'digital-marketing' ? null : 'digital-marketing')}
+            >
+              Digital Marketing <FaChevronDown className={`dropdown-icon ${openSubMenu === 'digital-marketing' ? 'rotated' : ''}`} />
+            </button>
+            {openSubMenu === 'digital-marketing' && (
+              <ul className="mobile-dropdown-menu">
+                {digitalMarketingMenu.map((item, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={() => handleSectionNavigation('digital-marketing')}
+                      className="mobile-dropdown-item"
+                    >
+                      <span className="service-icon">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </button>
                   </li>
                 ))}
               </ul>

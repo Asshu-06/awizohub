@@ -151,35 +151,302 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="section services-section">
+      <section id="services" className="section service-topics-section">
         <div className="container">
           <div className="section-header text-center">
-            <h2>Our Comprehensive Services</h2>
+            <h2>Services</h2>
             <p className="section-subtitle">
-              Empowering Your Success with Expert Solutions Across Multiple Domains
+              Comprehensive solutions tailored to your success
             </p>
           </div>
 
-          <div className="services-grid">
-            {services.map((service, index) => (
-              <div key={index} className="service-card">
-                <div className="service-icon-wrapper" style={{ backgroundColor: `${service.color}15` }}>
-                  <service.icon className="service-icon" style={{ color: service.color }} />
-                </div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-                <ul className="service-features">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>
-                      <FaCheckCircle className="feature-icon" /> {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link to={service.link} className="service-link">
-                  Learn More <FaArrowRight />
-                </Link>
+          <div className="topics-grid">
+            <div id="web-design-development" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/videoed.mp4" type="video/mp4" />
+                </video>
               </div>
-            ))}
+              <h3>Web Design & Development</h3>
+              <p>Custom websites with modern design and optimized performance</p>
+              <Link to="/#web-design-development" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="seo-performance-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/google.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>SEO & Performance Marketing</h3>
+              <p>Improve organic search rankings and drive quality traffic</p>
+              <Link to="/#seo-performance-marketing" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="cloud-hosting-infrastructure" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/video.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Cloud Hosting & Infrastructure</h3>
+              <p>Scalable cloud solutions for your business needs</p>
+              <Link to="/#cloud-hosting-infrastructure" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="crm-automation" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/resume.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>CRM & Automation</h3>
+              <p>Streamline your business processes with smart automation</p>
+              <Link to="/#crm-automation" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="digital-strategy-growth" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/career.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Digital Strategy & Growth</h3>
+              <p>Strategic planning for sustainable business growth</p>
+              <Link to="/#digital-strategy-growth" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="ai-lead-generation" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/social.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>AI Lead Generation</h3>
+              <p>Leverage AI to generate and qualify high-quality leads</p>
+              <Link to="/#ai-lead-generation" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="video-editing-production" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/Videoediting.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Video Editing & Production</h3>
+              <p>Professional video content for social media and marketing</p>
+              <Link to="/#video-editing-production" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="payment-gateway-integration" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/online.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Payment Gateway Integration</h3>
+              <p>Secure payment processing for your online business</p>
+              <Link to="/#payment-gateway-integration" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="online-education" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/online.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Online Education</h3>
+              <p>Access quality online education programs with expert guidance</p>
+              <Link to="/services/online-education" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="study-abroad" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/abroad education.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Study Abroad</h3>
+              <p>Turn your study abroad dreams into reality with expert counseling</p>
+              <Link to="/services/abroad-education" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="it-placement-assistance" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/job.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>IT Placement Assistance</h3>
+              <p>Launch your IT career with comprehensive placement support</p>
+              <Link to="/services/it-placement" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Marketing Section */}
+      <section id="digital-marketing" className="section service-topics-section bg-light">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2>Digital Marketing</h2>
+            <p className="section-subtitle">
+              Data-driven digital marketing strategies that deliver measurable results
+            </p>
+          </div>
+
+          <div className="topics-grid">
+            <div id="social-media-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/social.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Social Media Marketing</h3>
+              <p>Build and engage your audience across all social platforms</p>
+              <Link to="/digital-marketing/social-media" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="meta-facebook-ads" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/social.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Meta & Facebook Ads</h3>
+              <p>Reach your target audience with precision-targeted ad campaigns</p>
+              <Link to="/digital-marketing/meta-ads" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="email-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/resume.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Email Marketing</h3>
+              <p>Build customer relationships with targeted email campaigns</p>
+              <Link to="/digital-marketing/email" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="video-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/video.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Video Marketing</h3>
+              <p>Engage audiences with compelling video content strategies</p>
+              <Link to="/digital-marketing/video" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="local-seo" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/google.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Local SEO</h3>
+              <p>Dominate local search results and attract nearby customers</p>
+              <Link to="/digital-marketing/local-seo" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="google-ads-management" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/google.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Google Ads Management</h3>
+              <p>Drive targeted traffic with expertly managed Google Ads campaigns</p>
+              <Link to="/digital-marketing/google-ads" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="content-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/videoed.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Content Marketing</h3>
+              <p>Create valuable content that attracts and converts customers</p>
+              <Link to="/digital-marketing/content" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="whatsapp-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/social.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>WhatsApp Marketing</h3>
+              <p>Connect with customers through personalized WhatsApp campaigns</p>
+              <Link to="/digital-marketing/whatsapp" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="influencer-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/career.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>Influencer Marketing</h3>
+              <p>Amplify your brand message with relevant influencers</p>
+              <Link to="/digital-marketing/influencer" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
+
+            <div id="e-commerce-marketing" className="topic-card">
+              <div className="topic-video">
+                <video autoPlay loop muted playsInline>
+                  <source src="/online.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <h3>E-Commerce Marketing</h3>
+              <p>Drive sales with comprehensive e-commerce marketing strategies</p>
+              <Link to="/digital-marketing/ecommerce" className="topic-link">
+                Learn More <FaArrowRight />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { trackButtonClick } from '../../utils/analytics';
 import './FloatingButtons.css';
 
 const FloatingButtons = () => {
-  const phoneNumber = '7845787567';
+  const phoneNumber = '+917845787567';
   const whatsappNumber = '917845787567'; // with country code for WhatsApp
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hi, I'm interested in your services`;
 
