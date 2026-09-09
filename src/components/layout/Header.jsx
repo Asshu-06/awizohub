@@ -87,17 +87,17 @@ const Header = () => {
   };
 
   const servicesMenu = [
-    { name: 'Web Design & Development', path: '/#web-design', icon: '🌐' },
-    { name: 'SEO & Performance Marketing', path: '/#seo-marketing', icon: '📊' },
-    { name: 'Cloud Hosting & Infrastructure', path: '/#cloud-hosting', icon: '☁️' },
-    { name: 'CRM & Automation', path: '/#crm-automation', icon: '⚡' },
-    { name: 'Digital Strategy & Growth', path: '/#digital-strategy', icon: '🎯' },
-    { name: 'AI Lead Generation', path: '/#ai-lead-generation', icon: '🤖' },
-    { name: 'Video Editing & Production', path: '/#video-editing', icon: '🎬' },
-    { name: 'Payment Gateway Integration', path: '/#payment-gateway', icon: '💳' },
-    { name: 'Online Education', path: '/#online-education', icon: '🎓' },
-    { name: 'Study Abroad', path: '/#study-abroad', icon: '🌍' },
-    { name: 'IT Placement Assistance', path: '/#it-placement', icon: '💼' }
+    { name: 'Web Design & Development', path: '/services/web-design', icon: '🌐' },
+    { name: 'SEO & Performance Marketing', path: '/services/seo-marketing', icon: '📊' },
+    { name: 'Cloud Hosting & Infrastructure', path: '/services/cloud-hosting', icon: '☁️' },
+    { name: 'CRM & Automation', path: '/services/crm-automation', icon: '⚡' },
+    { name: 'Digital Strategy & Growth', path: '/services/digital-strategy', icon: '🎯' },
+    { name: 'AI Lead Generation', path: '/services/ai-lead-generation', icon: '🤖' },
+    { name: 'Video Editing & Production', path: '/services/video-editing', icon: '🎬' },
+    { name: 'Payment Gateway Integration', path: '/services/payment-gateway', icon: '💳' },
+    { name: 'Online Education', path: '/services/online-education', icon: '🎓' },
+    { name: 'Study Abroad', path: '/services/abroad-education', icon: '🌍' },
+    { name: 'IT Placement Assistance', path: '/services/it-placement', icon: '💼' }
   ];
 
   const digitalMarketingMenu = [

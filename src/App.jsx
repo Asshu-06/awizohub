@@ -13,9 +13,14 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import DigitalMarketing from './pages/services/DigitalMarketing';
-import ITPlacement from './pages/services/ITPlacement';
-import AbroadEducation from './pages/services/AbroadEducation';
-import OnlineEducation from './pages/services/OnlineEducation';
+import WebDesign from './pages/services/WebDesign';
+import SEOMarketing from './pages/services/SEOMarketing';
+import CloudHosting from './pages/services/CloudHosting';
+import CRMAutomation from './pages/services/CRMAutomation';
+import DigitalStrategy from './pages/services/DigitalStrategy';
+import AILeadGeneration from './pages/services/AILeadGeneration';
+import VideoEditing from './pages/services/VideoEditing';
+import PaymentGateway from './pages/services/PaymentGateway';
 import Careers from './pages/Careers';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -56,9 +61,14 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
-            <Route path="/services/it-placement" element={<ITPlacement />} />
-            <Route path="/services/abroad-education" element={<AbroadEducation />} />
-            <Route path="/services/online-education" element={<OnlineEducation />} />
+            <Route path="/services/web-design" element={<WebDesign />} />
+            <Route path="/services/seo-marketing" element={<SEOMarketing />} />
+            <Route path="/services/cloud-hosting" element={<CloudHosting />} />
+            <Route path="/services/crm-automation" element={<CRMAutomation />} />
+            <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
+            <Route path="/services/ai-lead-generation" element={<AILeadGeneration />} />
+            <Route path="/services/video-editing" element={<VideoEditing />} />
+            <Route path="/services/payment-gateway" element={<PaymentGateway />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
