@@ -3,8 +3,8 @@ import ContactForm from '../components/common/ContactForm';
 import './Contact.css';
 
 const Contact = () => {
-  const phoneNumber = import.meta.env.VITE_PHONE_NUMBER || '+1234567890';
-  const email = import.meta.env.VITE_EMAIL || 'info@awizohub.com';
+  const phoneNumber = '+917845787567';
+  const email = 'info@awizohub.com';
   const googleMapsUrl = import.meta.env.VITE_GOOGLE_MAPS_EMBED_URL || '';
 
   const contactInfo = [
