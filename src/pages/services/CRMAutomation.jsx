@@ -40,7 +40,7 @@ const CRMAutomation = () => {
             <div className="col-12 col-md-6">
               <div className="service-image">
                 <video autoPlay loop muted playsInline>
-                  <source src="/career.mp4" type="video/mp4" />
+                  <source src="/crm.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>

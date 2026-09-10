@@ -94,7 +94,7 @@ const additionalServicePages = [
     overviewTitle: 'Maximize Your Ad ROI',
     overviewText:
       'Reach your target audience with precision-targeted ad campaigns on Facebook and Instagram. We optimize your ad spend to generate leads, sales, and measurable results for your business.',
-    video: '/social.mp4',
+    video: '/metaads.mp4',
     features: [
       'Facebook & Instagram Ads',
       'Audience Targeting & Segmentation',
@@ -116,7 +116,7 @@ const additionalServicePages = [
     overviewTitle: 'Nurture Your Audience',
     overviewText:
       'Build lasting customer relationships with targeted email campaigns, newsletters, and automated sequences. We help you stay connected with your audience and drive repeat business.',
-    video: '/resume.mp4',
+    video: '/emailmarketing.mp4',
     features: [
       'Email Campaign Strategy',
       'Newsletter Design & Content',
@@ -138,7 +138,7 @@ const additionalServicePages = [
     overviewTitle: 'Tell Your Story with Video',
     overviewText:
       'Engage audiences with compelling video content strategies for social media, YouTube, and advertising. We create videos that capture attention and drive action for your brand.',
-    video: '/video.mp4',
+    video: '/videomarketing.mp4',
     features: [
       'Video Content Strategy',
       'Promotional Video Production',
@@ -160,7 +160,7 @@ const additionalServicePages = [
     overviewTitle: 'Get Found Locally',
     overviewText:
       'Dominate local search results and attract nearby customers with optimized Google Business Profile, local citations, and geo-targeted SEO strategies tailored to your area.',
-    video: '/google.mp4',
+    video: '/localseo.mp4',
     features: [
       'Google Business Profile Optimization',
       'Local Keyword Research',
@@ -204,7 +204,7 @@ const additionalServicePages = [
     overviewTitle: 'Content That Converts',
     overviewText:
       'Create valuable content including blog posts, articles, website copy, and marketing materials that attract, engage, and convert your target audience into loyal customers.',
-    video: '/videoed.mp4',
+    video: '/content.mp4',
     features: [
       'Content Strategy Development',
       'Blog Writing & Management',
@@ -270,7 +270,7 @@ const additionalServicePages = [
     overviewTitle: 'Boost Your Online Sales',
     overviewText:
       'Drive sales with comprehensive e-commerce marketing strategies including product promotions, cart recovery, marketplace optimization, and conversion-focused campaigns.',
-    video: '/online.mp4',
+    video: '/ecommerce.mp4',
     features: [
       'E-Commerce Store Optimization',
       'Product Listing Ads',

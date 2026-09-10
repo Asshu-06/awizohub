@@ -40,7 +40,7 @@ const CloudHosting = () => {
             <div className="col-12 col-md-6">
               <div className="service-image">
                 <video autoPlay loop muted playsInline>
-                  <source src="/video.mp4" type="video/mp4" />
+                  <source src="/cloudhosting.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>

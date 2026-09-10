@@ -1,4 +1,4 @@
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaLaptopCode, FaShoppingCart, FaMobileAlt, FaCogs, FaSearch, FaHeadset } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
 import ServiceFeaturesSection from '../../components/common/ServiceFeaturesSection';
 import { serviceVideos } from '../../data/serviceVideos';
@@ -14,6 +14,71 @@ const WebDesign = () => {
     'Mobile-First Approach',
     'Custom Web Applications',
     'E-Commerce Solutions'
+  ];
+
+  const solutions = [
+    {
+      icon: FaLaptopCode,
+      title: 'Business Websites',
+      description: 'Professional company websites with clear messaging, service pages, and lead capture built to represent your brand online.'
+    },
+    {
+      icon: FaShoppingCart,
+      title: 'E-Commerce Stores',
+      description: 'Online stores with product catalogs, secure checkout, payment gateway integration, and easy order management.'
+    },
+    {
+      icon: FaMobileAlt,
+      title: 'Landing Pages',
+      description: 'High-converting campaign pages designed for ads, product launches, and lead generation with fast load times.'
+    },
+    {
+      icon: FaCogs,
+      title: 'Custom Web Applications',
+      description: 'Dashboards, booking systems, client portals, and internal tools tailored to how your business actually works.'
+    },
+    {
+      icon: FaSearch,
+      title: 'SEO-Ready Development',
+      description: 'Clean code, fast performance, structured pages, and technical SEO so your site is ready to rank from day one.'
+    },
+    {
+      icon: FaHeadset,
+      title: 'Support & Maintenance',
+      description: 'Ongoing updates, security patches, backups, and content changes so your website stays reliable after launch.'
+    }
+  ];
+
+  const processSteps = [
+    {
+      step: '01',
+      title: 'Discovery & Planning',
+      description: 'We understand your goals, audience, competitors, and required features before any design or coding begins.'
+    },
+    {
+      step: '02',
+      title: 'UI/UX Design',
+      description: 'You get a clear visual direction with layouts, branding, and user flow so the site feels intuitive and on-brand.'
+    },
+    {
+      step: '03',
+      title: 'Development',
+      description: 'We build a responsive, secure, and fast website using modern technologies with clean, maintainable code.'
+    },
+    {
+      step: '04',
+      title: 'Testing & Launch',
+      description: 'Every page is tested across devices and browsers, then we deploy, connect domains, and go live with confidence.'
+    }
+  ];
+
+  const extras = [
+    'Domain & hosting setup guidance',
+    'Contact forms and WhatsApp integration',
+    'Google Analytics & Search Console setup',
+    'Speed optimization and Core Web Vitals',
+    'Admin panel for easy content updates',
+    'SSL, security, and backup configuration'
   ];
 
   return (
@@ -51,7 +116,7 @@ const WebDesign = () => {
             <div className="col-12 col-md-6">
               <div className="service-image">
                 <video autoPlay loop muted playsInline>
-                  <source src="/video.mp4" type="video/mp4" />
+                  <source src="/websitedev.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -64,6 +129,76 @@ const WebDesign = () => {
         video={serviceVideos['/services/web-design']}
         subtitle="Comprehensive web development services tailored to your needs"
       />
+
+      <section className="section service-extra-section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2>What We Build</h2>
+            <p className="section-subtitle">
+              End-to-end website development for startups, growing brands, and established businesses
+            </p>
+          </div>
+          <div className="service-extra-grid">
+            {solutions.map((item) => (
+              <div key={item.title} className="service-extra-card">
+                <div className="service-extra-icon">
+                  <item.icon />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section service-process-section bg-light">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2>How We Work</h2>
+            <p className="section-subtitle">
+              A simple, transparent process from idea to a live website
+            </p>
+          </div>
+          <div className="service-process-grid">
+            {processSteps.map((item) => (
+              <div key={item.step} className="service-process-card">
+                <span className="service-process-step">{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section service-extra-section">
+        <div className="container">
+          <div className="row service-included-row">
+            <div className="col-12 col-md-6">
+              <h2>Everything Included</h2>
+              <p>
+                Beyond design and coding, we handle the details that make a website ready for real business use.
+                Your site will be mobile-friendly, easy to manage, and built to convert visitors into enquiries.
+              </p>
+              <p>
+                Whether you need a new website from scratch or want to rebuild an outdated one, we keep the
+                existing brand strengths and improve structure, speed, and user experience.
+              </p>
+            </div>
+            <div className="col-12 col-md-6">
+              <ul className="service-included-list">
+                {extras.map((item) => (
+                  <li key={item}>
+                    <FaCheckCircle />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA + Form */}
       <section className="section service-cta-section">

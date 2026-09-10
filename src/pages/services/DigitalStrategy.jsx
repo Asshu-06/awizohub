@@ -40,7 +40,7 @@ const DigitalStrategy = () => {
             <div className="col-12 col-md-6">
               <div className="service-image">
                 <video autoPlay loop muted playsInline>
-                  <source src="/google.mp4" type="video/mp4" />
+                  <source src="/digitalmarketing.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>

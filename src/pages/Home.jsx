@@ -164,7 +164,7 @@ const Home = () => {
             <div id="web-design-development" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/videoed.mp4" type="video/mp4" />
+                  <source src="/websitedev.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Web Design & Development</h3>
@@ -177,7 +177,7 @@ const Home = () => {
             <div id="seo-performance-marketing" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/google.mp4" type="video/mp4" />
+                  <source src="/localseo.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>SEO & Performance Marketing</h3>
@@ -190,7 +190,7 @@ const Home = () => {
             <div id="cloud-hosting-infrastructure" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/video.mp4" type="video/mp4" />
+                  <source src="/cloudhosting.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Cloud Hosting & Infrastructure</h3>
@@ -203,7 +203,7 @@ const Home = () => {
             <div id="crm-automation" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/resume.mp4" type="video/mp4" />
+                  <source src="/crm.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>CRM & Automation</h3>
@@ -216,7 +216,7 @@ const Home = () => {
             <div id="digital-strategy-growth" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/career.mp4" type="video/mp4" />
+                  <source src="/digitalmarketing.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Digital Strategy & Growth</h3>
@@ -229,7 +229,7 @@ const Home = () => {
             <div id="ai-lead-generation" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/social.mp4" type="video/mp4" />
+                  <source src="/aileads.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>AI Lead Generation</h3>
@@ -255,7 +255,7 @@ const Home = () => {
             <div id="payment-gateway-integration" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/online.mp4" type="video/mp4" />
+                  <source src="/payment.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Payment Gateway Integration</h3>
@@ -334,7 +334,7 @@ const Home = () => {
             <div id="meta-facebook-ads" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/social.mp4" type="video/mp4" />
+                  <source src="/metaads.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Meta & Facebook Ads</h3>
@@ -347,7 +347,7 @@ const Home = () => {
             <div id="email-marketing" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/resume.mp4" type="video/mp4" />
+                  <source src="/emailmarketing.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Email Marketing</h3>
@@ -360,7 +360,7 @@ const Home = () => {
             <div id="video-marketing" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/video.mp4" type="video/mp4" />
+                  <source src="/videomarketing.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Video Marketing</h3>
@@ -373,7 +373,7 @@ const Home = () => {
             <div id="local-seo" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/google.mp4" type="video/mp4" />
+                  <source src="/localseo.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Local SEO</h3>
@@ -399,7 +399,7 @@ const Home = () => {
             <div id="content-marketing" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/videoed.mp4" type="video/mp4" />
+                  <source src="/content.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>Content Marketing</h3>
@@ -438,7 +438,7 @@ const Home = () => {
             <div id="e-commerce-marketing" className="topic-card">
               <div className="topic-video">
                 <video autoPlay loop muted playsInline>
-                  <source src="/online.mp4" type="video/mp4" />
+                  <source src="/ecommerce.mp4" type="video/mp4" />
                 </video>
               </div>
               <h3>E-Commerce Marketing</h3>
