@@ -275,6 +275,69 @@ html {
   transform: translateY(0);
 }
 
+/* Features Section with Video */
+.features-section {
+  padding: var(--spacing-2xl) 0;
+}
+
+.features-section .section-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.features-offer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.features-offer-video {
+  grid-column: 2;
+  grid-row: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background-color: var(--bg-surface);
+  aspect-ratio: 16 / 10;
+  width: 100%;
+}
+
+.features-offer-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.features-list {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-md);
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(158, 163, 173, 0.12);
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.feature-item .feature-icon {
+  color: var(--primary-teal);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  font-size: 1rem;
+}
+
 /* Service CTA Section */
 .service-cta-section {
   padding: var(--spacing-2xl) 0;
@@ -330,6 +393,10 @@ html {
   .benefits-list {
     grid-template-columns: 1fr;
   }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
   
   .service-hero {
     min-height: 50vh;
@@ -365,5 +432,37 @@ html {
 
   .services-list-grid {
     grid-template-columns: 1fr;
+  }
+
+  .features-offer-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .features-offer-video {
+    grid-column: 1;
+    grid-row: 1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .features-list {
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .features-offer-video {
+    border-radius: var(--radius-md);
+  }
+
+  .feature-item {
+    padding: var(--spacing-sm);
+    font-size: 0.9375rem;
   }
 }

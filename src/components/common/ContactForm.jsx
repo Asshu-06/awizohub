@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../config/supabase';
 import { validateForm, checkHoneypot, checkRateLimit } from '../../utils/formValidation';
 import { trackFormSubmission } from '../../utils/analytics';
+import { serviceCategories, generalInquiryOption } from '../../data/serviceOptions';
 import './ContactForm.css';
 
 const ContactForm = ({ formTitle = 'Get in Touch', defaultService = '' }) => {
@@ -20,13 +21,14 @@ const ContactForm = ({ formTitle = 'Get in Touch', defaultService = '' }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const services = [
-    'Digital Marketing Services',
-    'IT Placement Assistance',
-    'Abroad Education Guidance',
-    'Online Education Assistance',
-    'General Inquiry',
-  ];
+  useEffect(() => {
+    if (defaultService) {
+      setFormData((prev) => ({
+        ...prev,
+        service: defaultService,
+      }));
+    }
+  }, [defaultService]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -196,11 +198,16 @@ const ContactForm = ({ formTitle = 'Get in Touch', defaultService = '' }) => {
               required
             >
               <option value="">Select a service</option>
-              {services.map((service) => (
-                <option key={service} value={service}>
-                  {service}
-                </option>
+              {serviceCategories.map((category) => (
+                <optgroup key={category.label} label={category.label}>
+                  {category.options.map((service) => (
+                    <option key={service} value={service}>
+                      {service}
+                    </option>
+                  ))}
+                </optgroup>
               ))}
+              <option value={generalInquiryOption}>{generalInquiryOption}</option>
             </select>
             {errors.service && <span className="form-error">{errors.service}</span>}
           </div>

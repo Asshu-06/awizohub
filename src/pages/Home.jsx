@@ -169,7 +169,7 @@ const Home = () => {
               </div>
               <h3>Web Design & Development</h3>
               <p>Custom websites with modern design and optimized performance</p>
-              <Link to="/#web-design-development" className="topic-link">
+              <Link to="/services/web-design" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -182,7 +182,7 @@ const Home = () => {
               </div>
               <h3>SEO & Performance Marketing</h3>
               <p>Improve organic search rankings and drive quality traffic</p>
-              <Link to="/#seo-performance-marketing" className="topic-link">
+              <Link to="/services/seo-marketing" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -195,7 +195,7 @@ const Home = () => {
               </div>
               <h3>Cloud Hosting & Infrastructure</h3>
               <p>Scalable cloud solutions for your business needs</p>
-              <Link to="/#cloud-hosting-infrastructure" className="topic-link">
+              <Link to="/services/cloud-hosting" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -208,7 +208,7 @@ const Home = () => {
               </div>
               <h3>CRM & Automation</h3>
               <p>Streamline your business processes with smart automation</p>
-              <Link to="/#crm-automation" className="topic-link">
+              <Link to="/services/crm-automation" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -221,7 +221,7 @@ const Home = () => {
               </div>
               <h3>Digital Strategy & Growth</h3>
               <p>Strategic planning for sustainable business growth</p>
-              <Link to="/#digital-strategy-growth" className="topic-link">
+              <Link to="/services/digital-strategy" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -234,7 +234,7 @@ const Home = () => {
               </div>
               <h3>AI Lead Generation</h3>
               <p>Leverage AI to generate and qualify high-quality leads</p>
-              <Link to="/#ai-lead-generation" className="topic-link">
+              <Link to="/services/ai-lead-generation" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -247,7 +247,7 @@ const Home = () => {
               </div>
               <h3>Video Editing & Production</h3>
               <p>Professional video content for social media and marketing</p>
-              <Link to="/#video-editing-production" className="topic-link">
+              <Link to="/services/video-editing" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>
@@ -260,7 +260,7 @@ const Home = () => {
               </div>
               <h3>Payment Gateway Integration</h3>
               <p>Secure payment processing for your online business</p>
-              <Link to="/#payment-gateway-integration" className="topic-link">
+              <Link to="/services/payment-gateway" className="topic-link">
                 Learn More <FaArrowRight />
               </Link>
             </div>

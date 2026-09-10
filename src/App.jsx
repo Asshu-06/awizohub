@@ -30,6 +30,10 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import NotFound from './pages/NotFound';
 
+// Additional Service Pages
+import ServiceDetailLayout from './components/common/ServiceDetailLayout';
+import additionalServicePages from './data/additionalServicePages';
+
 // Analytics
 import { initAnalytics } from './utils/analytics';
 
@@ -69,6 +73,13 @@ function App() {
             <Route path="/services/ai-lead-generation" element={<AILeadGeneration />} />
             <Route path="/services/video-editing" element={<VideoEditing />} />
             <Route path="/services/payment-gateway" element={<PaymentGateway />} />
+            {additionalServicePages.map((page) => (
+              <Route
+                key={page.path}
+                path={page.path}
+                element={<ServiceDetailLayout {...page} />}
+              />
+            ))}
             <Route path="/careers" element={<Careers />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

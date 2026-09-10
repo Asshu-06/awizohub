@@ -4,15 +4,16 @@ import {
   FaBars, 
   FaTimes, 
   FaChevronDown,
-  FaPhone,
   FaEnvelope
 } from 'react-icons/fa';
+import { BsTelephoneFill } from 'react-icons/bs';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
+  const [desktopDropdown, setDesktopDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -65,11 +66,23 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    // Close mobile menu on route change
+    // Close menus on route change
     setIsMenuOpen(false);
     setIsServicesOpen(false);
     setOpenSubMenu(null);
+    setDesktopDropdown(null);
   }, [location]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.nav-dropdown')) {
+        setDesktopDropdown(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -101,17 +114,33 @@ const Header = () => {
   ];
 
   const digitalMarketingMenu = [
-    { name: 'Social Media Marketing', path: '/#digital-marketing', icon: '🟪' },
-    { name: 'Meta & Facebook Ads', path: '/#digital-marketing', icon: '🟦' },
-    { name: 'Email Marketing', path: '/#digital-marketing', icon: '✉️' },
-    { name: 'Video Marketing', path: '/#digital-marketing', icon: '🎥' },
-    { name: 'Local SEO', path: '/#digital-marketing', icon: '📍' },
-    { name: 'Google Ads Management', path: '/#digital-marketing', icon: '🎯' },
-    { name: 'Content Marketing', path: '/#digital-marketing', icon: '👍' },
-    { name: 'WhatsApp Marketing', path: '/#digital-marketing', icon: '💬' },
-    { name: 'Influencer Marketing', path: '/#digital-marketing', icon: '⭐' },
-    { name: 'E-Commerce Marketing', path: '/#digital-marketing', icon: '🛒' }
+    { name: 'Social Media Marketing', path: '/digital-marketing/social-media', icon: '🟪' },
+    { name: 'Meta & Facebook Ads', path: '/digital-marketing/meta-ads', icon: '🟦' },
+    { name: 'Email Marketing', path: '/digital-marketing/email', icon: '✉️' },
+    { name: 'Video Marketing', path: '/digital-marketing/video', icon: '🎥' },
+    { name: 'Local SEO', path: '/digital-marketing/local-seo', icon: '📍' },
+    { name: 'Google Ads Management', path: '/digital-marketing/google-ads', icon: '🎯' },
+    { name: 'Content Marketing', path: '/digital-marketing/content', icon: '👍' },
+    { name: 'WhatsApp Marketing', path: '/digital-marketing/whatsapp', icon: '💬' },
+    { name: 'Influencer Marketing', path: '/digital-marketing/influencer', icon: '⭐' },
+    { name: 'E-Commerce Marketing', path: '/digital-marketing/ecommerce', icon: '🛒' }
   ];
+
+  const handleServiceNavigation = (path) => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    setOpenSubMenu(null);
+    setDesktopDropdown(null);
+    navigate(path);
+  };
+
+  const toggleDesktopDropdown = (menu) => {
+    setDesktopDropdown((current) => (current === menu ? null : menu));
+  };
+
+  const closeDesktopDropdown = () => {
+    setDesktopDropdown(null);
+  };
 
   return (
     <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
@@ -120,11 +149,13 @@ const Header = () => {
         <div className="container">
           <div className="topbar-content">
             <div className="topbar-left">
-              <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="topbar-link">
-                <FaPhone /> {phoneNumber}
+              <a href={`tel:${phoneNumber}`} className="topbar-link">
+                <BsTelephoneFill className="phone-icon" aria-hidden="true" />
+                <span>{phoneNumber}</span>
               </a>
-              <a href={`mailto:${email}`} className="topbar-link">
-                <FaEnvelope /> {email}
+              <a href={`mailto:${email}`} className="topbar-link topbar-email">
+                <FaEnvelope aria-hidden="true" />
+                <span className="topbar-email-text">{email}</span>
               </a>
             </div>
             <div className="topbar-right">
@@ -172,50 +203,68 @@ const Header = () => {
                   About Us
                 </Link>
               </li>
-              <li className="nav-item nav-dropdown">
+              <li
+                className={`nav-item nav-dropdown ${desktopDropdown === 'services' ? 'is-open' : ''}`}
+                onMouseLeave={closeDesktopDropdown}
+              >
                 <button 
+                  type="button"
                   className={`nav-link ${location.pathname.startsWith('/services') ? 'active' : ''}`}
-                  aria-expanded="false"
+                  aria-expanded={desktopDropdown === 'services'}
                   aria-haspopup="true"
                   aria-label="Services menu"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleDesktopDropdown('services');
+                  }}
                 >
                   Services <FaChevronDown className="dropdown-icon" />
                 </button>
                 <ul className="dropdown-menu dropdown-menu-services" role="menu">
                   {servicesMenu.map((service, index) => (
                     <li key={index} role="none">
-                      <button 
-                        onClick={() => handleSectionNavigation('services')}
+                      <Link 
+                        to={service.path}
                         className="dropdown-item" 
                         role="menuitem"
+                        onClick={closeDesktopDropdown}
                       >
                         <span className="service-icon">{service.icon}</span>
                         <span>{service.name}</span>
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </li>
-              <li className="nav-item nav-dropdown">
+              <li
+                className={`nav-item nav-dropdown ${desktopDropdown === 'digital-marketing' ? 'is-open' : ''}`}
+                onMouseLeave={closeDesktopDropdown}
+              >
                 <button 
+                  type="button"
                   className={`nav-link ${location.pathname.startsWith('/digital-marketing') ? 'active' : ''}`}
-                  aria-expanded="false"
+                  aria-expanded={desktopDropdown === 'digital-marketing'}
                   aria-haspopup="true"
                   aria-label="Digital Marketing menu"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleDesktopDropdown('digital-marketing');
+                  }}
                 >
                   Digital Marketing <FaChevronDown className="dropdown-icon" />
                 </button>
                 <ul className="dropdown-menu dropdown-menu-digital-marketing" role="menu">
                   {digitalMarketingMenu.map((item, index) => (
                     <li key={index} role="none">
-                      <button 
-                        onClick={() => handleSectionNavigation('digital-marketing')}
+                      <Link 
+                        to={item.path}
                         className="dropdown-item" 
                         role="menuitem"
+                        onClick={closeDesktopDropdown}
                       >
                         <span className="service-icon">{item.icon}</span>
                         <span>{item.name}</span>
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -289,13 +338,14 @@ const Header = () => {
               <ul className="mobile-dropdown-menu">
                 {servicesMenu.map((service, index) => (
                   <li key={index}>
-                    <button 
-                      onClick={() => handleSectionNavigation('services')}
+                    <Link 
+                      to={service.path}
                       className="mobile-dropdown-item"
+                      onClick={() => handleServiceNavigation(service.path)}
                     >
                       <span className="service-icon">{service.icon}</span>
                       <span>{service.name}</span>
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -312,13 +362,14 @@ const Header = () => {
               <ul className="mobile-dropdown-menu">
                 {digitalMarketingMenu.map((item, index) => (
                   <li key={index}>
-                    <button 
-                      onClick={() => handleSectionNavigation('digital-marketing')}
+                    <Link 
+                      to={item.path}
                       className="mobile-dropdown-item"
+                      onClick={() => handleServiceNavigation(item.path)}
                     >
                       <span className="service-icon">{item.icon}</span>
                       <span>{item.name}</span>
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>

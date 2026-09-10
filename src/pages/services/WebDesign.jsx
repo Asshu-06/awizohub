@@ -1,6 +1,7 @@
-import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaCheckCircle } from 'react-icons/fa';
 import ContactForm from '../../components/common/ContactForm';
+import ServiceFeaturesSection from '../../components/common/ServiceFeaturesSection';
+import { serviceVideos } from '../../data/serviceVideos';
 import './ServiceDetail.css';
 
 const WebDesign = () => {
@@ -58,25 +59,11 @@ const WebDesign = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="section features-section bg-light">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2>What We Offer</h2>
-            <p className="section-subtitle">
-              Comprehensive web development services tailored to your needs
-            </p>
-          </div>
-          <div className="features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="feature-item">
-                <FaCheckCircle className="feature-icon" />
-                <span>{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceFeaturesSection
+        features={features}
+        video={serviceVideos['/services/web-design']}
+        subtitle="Comprehensive web development services tailored to your needs"
+      />
 
       {/* CTA + Form */}
       <section className="section service-cta-section">

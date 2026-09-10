@@ -1,4 +1,5 @@
-import { FaWhatsapp, FaPhone } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
+import { BsTelephoneFill } from 'react-icons/bs';
 import { trackButtonClick } from '../../utils/analytics';
 import './FloatingButtons.css';
 
@@ -35,7 +36,7 @@ const FloatingButtons = () => {
         onClick={handleCallClick}
         aria-label="Call us"
       >
-        <FaPhone className="floating-icon" />
+        <BsTelephoneFill className="floating-icon" />
         <span className="floating-text">Call Now</span>
       </a>
     </div>
